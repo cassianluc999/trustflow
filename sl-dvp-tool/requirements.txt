@@ -1,0 +1,14 @@
+# Requirements for Synergy Ledger (SL) DVP
+# This is an MVP and requires only standard Python libraries,
+# but we include math for the K-Factor log10 function.
+
+# Standard Python 3.10+
+# hashlib (built-in)
+# json (built-in)
+# datetime (built-in)
+# typing (built-in)
+# math (built-in)
+
+# For future DID/VC Integration (P2)
+# pyld (Future)
+# did-key (Future)

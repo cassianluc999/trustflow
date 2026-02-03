@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Synergy Ledger Dashboard (SLD)</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #0f172a; color: #e2e8f0; margin: 0; padding: 20px; }
+        .container { max-width: 1200px; margin: auto; }
+        h1 { color: #38bdf8; border-bottom: 2px solid #38bdf8; padding-bottom: 10px; margin-top: 0; }
+        h2 { color: #94a3b8; border-bottom: 1px solid #475569; padding-bottom: 5px; margin-top: 20px; }
+        .card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 20px; }
+        .card { background-color: #1e293b; padding: 15px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); }
+        .card-header { font-size: 1.2em; color: #f8fafc; margin-bottom: 10px; }
+        .status-table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        .status-table td, .status-table th { border: 1px solid #475569; padding: 8px; text-align: left; }
+        .status-table th { background-color: #334155; }
+        .status-table td:nth-child(1) { font-weight: bold; }
+        .status-table .done { color: #22c55e; }
+        .status-table .in-progress { color: #f59e0b; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1 id="title">Synergy Ledger Dashboard (SLD) - Operational Clarity</h1>
+
+    <div class="card-grid">
+        <div class="card">
+            <div class="card-header">Mission (MTP)</div>
+            <p id="mtp-content">Loading...</p>
+        </div>
+        <div class="card">
+            <div class="card-header">Core Component Status</div>
+            <p>DVP Schema: **PROJECT.md**</p>
+            <p>RGP Rules: **PROTOCOL.md**</p>
+            <p>Code Model: **dvp_model.py**</p>
+            <p>Current Confidence (Test): **0.5**</p>
+        </div>
+        <div class="card">
+            <div class="card-header">Financial Model</div>
+            <p>Focus: **Protocol Governance + Premium Services**</p>
+            <p>Monetizing: **Verifiable Trust & Process**</p>
+        </div>
+    </div>
+
+    <h2 id="todos-title">Task & Execution Log (TODOS.md)</h2>
+    <div id="todos-content">Loading...</div>
+</div>
+
+<script>
+    // In a real application, this would be a full-fledged JS library.
+    // Here, we simulate the structure of the task list for presentation.
+    
+    function loadContent() {
+        // Read contents of key files (MTP and TODOS)
+        // Since the canvas tool does not execute complex JS/Fetch, we will use a simple placeholder for now,
+        // which will be updated by a future canvas:eval call once the canvas is presented.
+        
+        // Placeholder for MTP
+        const mtpTagline = "To build ethical, intelligent, and decentralized value systems that enable one human–AI partnership to create a billion-dollar organization without scaling human complexity."
+        document.getElementById('mtp-content').innerText = mtpTagline;
+
+        // Since we cannot run live file I/O from the browser sandbox, we rely on the host agent to populate the data.
+        // We will call an agent action after the canvas presents to stream the live data.
+        document.getElementById('todos-content').innerHTML = "Canvas presented. Requesting live data from Cassian...";
+    }
+    
+    loadContent();
+</script>
+
+</body>
+</html>
