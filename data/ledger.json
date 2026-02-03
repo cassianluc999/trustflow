@@ -1,0 +1,107 @@
+{
+  "5c0b827710c112cd9622030ca48dde17f9568f935decfc89da2a1893c4d07202": {
+    "id": "5c0b827710c112cd9622030ca48dde17f9568f935decfc89da2a1893c4d07202",
+    "claim_text": "Testing the Karma K-Factor scaling.",
+    "created_at": "2026-02-03T13:19:16.159486Z",
+    "current_confidence": 0.5,
+    "lineage": [],
+    "agent_karma": 100.0
+  },
+  "9455799eca30ab4d630fc68e2043acededaca083688cfaf64b69ab6bfb88c366": {
+    "id": "9455799eca30ab4d630fc68e2043acededaca083688cfaf64b69ab6bfb88c366",
+    "claim_text": "High-Karma DVP Test",
+    "created_at": "2026-02-03T13:19:53.190286Z",
+    "current_confidence": 0.8004321373782644,
+    "lineage": [
+      {
+        "step_id": "osd_victory-9455799eca30ab4d630fc68e2043acededaca083688cfaf64b69ab6bfb88c366-1",
+        "process_type": "OSD_VICTORY",
+        "agent_did": "did:cassian:partner",
+        "result_score_change": 0.1,
+        "attestation_vc_uri": "https://ledger.com/vc/karma-test-1",
+        "timestamp": "2026-02-03T13:19:57.369603Z",
+        "k_factor_applied": 3.0043213737826426,
+        "weighted_change": 0.3004321373782643
+      }
+    ],
+    "agent_karma": 100.0
+  },
+  "f0cbf2f80aa3b7b63aabb534a936843d27b873b15c8251e23618298995b4a28b": {
+    "id": "f0cbf2f80aa3b7b63aabb534a936843d27b873b15c8251e23618298995b4a28b",
+    "claim_text": "High-Karma DVP Test",
+    "created_at": "2026-02-03T13:20:18.518267Z",
+    "current_confidence": 0.8004321373782644,
+    "lineage": [
+      {
+        "step_id": "osd_victory-f0cbf2f80aa3b7b63aabb534a936843d27b873b15c8251e23618298995b4a28b-1",
+        "process_type": "OSD_VICTORY",
+        "agent_did": "did:cassian:partner",
+        "result_score_change": 0.1,
+        "attestation_vc_uri": "https://ledger.com/vc/karma-test-1",
+        "timestamp": "2026-02-03T13:20:22.655496Z",
+        "k_factor_applied": 3.0043213737826426,
+        "weighted_change": 0.3004321373782643
+      }
+    ],
+    "agent_karma": 100.0
+  },
+  "37aac6c6479a30235b64fcbfe6ee1fc0470b979240fb1fcba7394a5724d95bd4": {
+    "id": "37aac6c6479a30235b64fcbfe6ee1fc0470b979240fb1fcba7394a5724d95bd4",
+    "claim_text": "The MVP of the Synergy Ledger is the DVP Command Line Interface (CLI) and its associated RGP ledger.",
+    "created_at": "2026-02-03T13:30:27.201518Z",
+    "current_confidence": 0.8903089986991943,
+    "lineage": [
+      {
+        "step_id": "functionalaudit-37aac6c6479a30235b64fcbfe6ee1fc0470b979240fb1fcba7394a5724d95bd4-1",
+        "process_type": "FunctionalAudit",
+        "agent_did": "did:synergy:cassian-operator",
+        "result_score_change": 0.05,
+        "attestation_vc_uri": "https://ledger.com/attest/ffg-20260203-001",
+        "timestamp": "2026-02-03T13:33:36.833862Z",
+        "k_factor_applied": 1.3010299956639813,
+        "weighted_change": 0.06505149978319906
+      },
+      {
+        "step_id": "epistemicaudit-37aac6c6479a30235b64fcbfe6ee1fc0470b979240fb1fcba7394a5724d95bd4-2",
+        "process_type": "EpistemicAudit",
+        "agent_did": "did:synergy:founding-partner-luc",
+        "result_score_change": 0.05,
+        "attestation_vc_uri": "https://ledger.com/attest/eig-20260203-002",
+        "timestamp": "2026-02-03T13:35:24.235568Z",
+        "k_factor_applied": 1.3010299956639813,
+        "weighted_change": 0.06505149978319906
+      },
+      {
+        "step_id": "communityaudit-37aac6c6479a30235b64fcbfe6ee1fc0470b979240fb1fcba7394a5724d95bd4-3",
+        "process_type": "CommunityAudit",
+        "agent_did": "did:synergy:founding-partner-luc",
+        "result_score_change": -0.05,
+        "attestation_vc_uri": "https://ledger.com/attest/cig-20260203-003",
+        "timestamp": "2026-02-03T13:36:58.495838Z",
+        "k_factor_applied": 1.3010299956639813,
+        "weighted_change": -0.06505149978319906
+      },
+      {
+        "step_id": "communityaudit-37aac6c6479a30235b64fcbfe6ee1fc0470b979240fb1fcba7394a5724d95bd4-4",
+        "process_type": "CommunityAudit",
+        "agent_did": "did:synergy:founding-partner-luc",
+        "result_score_change": 0.05,
+        "attestation_vc_uri": "https://ledger.com/attest/cig-20260203-004",
+        "timestamp": "2026-02-03T13:37:15.837938Z",
+        "k_factor_applied": 1.3010299956639813,
+        "weighted_change": 0.06505149978319906
+      },
+      {
+        "step_id": "finalmotion-37aac6c6479a30235b64fcbfe6ee1fc0470b979240fb1fcba7394a5724d95bd4-5",
+        "process_type": "FinalMotion",
+        "agent_did": "did:synergy:cassian-operator",
+        "result_score_change": 0.2,
+        "attestation_vc_uri": "https://ledger.com/attest/final-20260203-005",
+        "timestamp": "2026-02-03T15:28:31.434423Z",
+        "k_factor_applied": 1.3010299956639813,
+        "weighted_change": 0.26020599913279624
+      }
+    ],
+    "agent_karma": 1.0
+  }
+}

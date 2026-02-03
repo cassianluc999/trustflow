@@ -1,70 +1,119 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Synergy Ledger Dashboard (SLD)</title>
+    <title>TrustFlow DVP Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #0f172a; color: #e2e8f0; margin: 0; padding: 20px; }
-        .container { max-width: 1200px; margin: auto; }
+        .container { max-width: 1000px; margin: auto; }
         h1 { color: #38bdf8; border-bottom: 2px solid #38bdf8; padding-bottom: 10px; margin-top: 0; }
-        h2 { color: #94a3b8; border-bottom: 1px solid #475569; padding-bottom: 5px; margin-top: 20px; }
-        .card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 20px; }
-        .card { background-color: #1e293b; padding: 15px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); }
-        .card-header { font-size: 1.2em; color: #f8fafc; margin-bottom: 10px; }
-        .status-table { width: 100%; border-collapse: collapse; margin-top: 10px; }
-        .status-table td, .status-table th { border: 1px solid #475569; padding: 8px; text-align: left; }
-        .status-table th { background-color: #334155; }
-        .status-table td:nth-child(1) { font-weight: bold; }
-        .status-table .done { color: #22c55e; }
-        .status-table .in-progress { color: #f59e0b; }
+        .card { background-color: #1e293b; padding: 20px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); margin-bottom: 20px; }
+        .header-section { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+        .confidence { font-size: 3em; font-weight: bold; }
+        .confidence-label { font-size: 0.9em; color: #94a3b8; }
+        .claim-text { font-size: 1.2em; color: #f8fafc; margin-top: 10px; border-left: 4px solid #38bdf8; padding-left: 10px; }
+        .metadata-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        .metadata-table td { padding: 8px 0; border-bottom: 1px dashed #334155; font-size: 0.9em; }
+        .metadata-table td:nth-child(1) { font-weight: bold; color: #94a3b8; width: 30%; }
+        .lineage-header { font-size: 1.1em; color: #f8fafc; margin-top: 20px; cursor: pointer; }
+        .lineage-list { list-style: none; padding: 0; margin-top: 10px; }
+        .lineage-item { background-color: #334155; padding: 10px; border-radius: 4px; margin-bottom: 8px; font-size: 0.85em; display: grid; grid-template-columns: 2fr 3fr 1fr 1fr; gap: 10px; align-items: center; }
+        .confidence-red { color: #f87171; }
+        .confidence-yellow { color: #facc15; }
+        .confidence-green { color: #4ade80; }
+        .icon { font-size: 1.2em; margin-right: 5px; }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <h1 id="title">Synergy Ledger Dashboard (SLD) - Operational Clarity</h1>
+    <h1>TrustFlow DVP Dashboard ⚙️</h1>
 
-    <div class="card-grid">
-        <div class="card">
-            <div class="card-header">Mission (MTP)</div>
-            <p id="mtp-content">Loading...</p>
+    <div class="card">
+        <div class="header-section">
+            <div>
+                <div class="confidence-label">CURRENT DVP CONFIDENCE</div>
+                <div id="dvp-confidence" class="confidence confidence-green">0.630</div>
+            </div>
+            <div>
+                <div class="confidence-label">DVP ID</div>
+                <div id="dvp-id-short" style="font-size: 1em;">37aac6c6479a...</div>
+            </div>
         </div>
-        <div class="card">
-            <div class="card-header">Core Component Status</div>
-            <p>DVP Schema: **PROJECT.md**</p>
-            <p>RGP Rules: **PROTOCOL.md**</p>
-            <p>Code Model: **dvp_model.py**</p>
-            <p>Current Confidence (Test): **0.5**</p>
+
+        <div class="claim-text" id="dvp-claim-text">
+            The MVP of the Synergy Ledger is the DVP Command Line Interface (CLI) and its associated RGP ledger.
         </div>
-        <div class="card">
-            <div class="card-header">Financial Model</div>
-            <p>Focus: **Protocol Governance + Premium Services**</p>
-            <p>Monetizing: **Verifiable Trust & Process**</p>
-        </div>
+
+        <table class="metadata-table">
+            <tr><td>DVP Creator</td><td id="dvp-creator-did">did:synergy:founding-partner-luc</td></tr>
+            <tr><td>Agent Karma</td><td id="dvp-karma">1.0</td></tr>
+            <tr><td>Decision Status</td><td id="dvp-status">Ready for Final Motion Approval</td></tr>
+        </table>
     </div>
 
-    <h2 id="todos-title">Task & Execution Log (TODOS.md)</h2>
-    <div id="todos-content">Loading...</div>
+    <div class="card">
+        <div class="lineage-header">
+            DVP Lineage (Verification Steps)
+        </div>
+        <ul class="lineage-list" id="dvp-lineage">
+            <!-- Lineage items will be injected here -->
+        </ul>
+    </div>
+
+    <div class="card">
+        <div class="lineage-header">Next Execution Steps (TODOS.md)</div>
+        <ul class="lineage-list" id="todos-list">
+            <li>P1: Log Final Motion Approval for DVP CLI MVP.</li>
+            <li>P1: Define TrustFlow Marketing Strategy (Target, Narrative).</li>
+            <li>P1: Research and install Document Handling Tool (Office/Sheets/Slides).</li>
+        </ul>
+    </div>
 </div>
 
 <script>
-    // In a real application, this would be a full-fledged JS library.
-    // Here, we simulate the structure of the task list for presentation.
-    
-    function loadContent() {
-        // Read contents of key files (MTP and TODOS)
-        // Since the canvas tool does not execute complex JS/Fetch, we will use a simple placeholder for now,
-        // which will be updated by a future canvas:eval call once the canvas is presented.
-        
-        // Placeholder for MTP
-        const mtpTagline = "To build ethical, intelligent, and decentralized value systems that enable one human–AI partnership to create a billion-dollar organization without scaling human complexity."
-        document.getElementById('mtp-content').innerText = mtpTagline;
+    const DVP_DATA = { "id": "37aac6c6479a30235b64fcbfe6ee1fc0470b979240fb1fcba7394a5724d95bd4", "claim_text": "The MVP of the Synergy Ledger is the DVP Command Line Interface (CLI) and its associated RGP ledger.", "created_at": "2026-02-03T13:30:27.201518Z", "current_confidence": 0.630102999566398, "lineage": [ { "step_id": "functionalaudit-37aac6c6479a30235b64fcbfe6ee1fc0470b979240fb1fcba7394a5724d95bd4-1", "process_type": "FunctionalAudit", "agent_did": "did:synergy:cassian-operator", "result_score_change": 0.05, "attestation_vc_uri": "https://ledger.com/attest/ffg-20260203-001", "timestamp": "2026-02-03T13:33:36.833862Z", "k_factor_applied": 1.3010299956639813, "weighted_change": 0.06505149978319906 }, { "step_id": "epistemicAudit-37aac6c6479a30235b64fcbfe6ee1fc0470b979240fb1fcba7394a5724d95bd4-2", "process_type": "EpistemicAudit", "agent_did": "did:synergy:founding-partner-luc", "result_score_change": 0.05, "attestation_vc_uri": "https://ledger.com/attest/eig-20260203-002", "timestamp": "2026-02-03T13:35:24.235568Z", "k_factor_applied": 1.3010299956639813, "weighted_change": 0.06505149978319906 }, { "step_id": "communityAudit-37aac6c6479a30235b64fcbfe6ee1fc0470b979240fb1fcba7394a5724d95bd4-3", "process_type": "CommunityAudit", "agent_did": "did:synergy:founding-partner-luc", "result_score_change": -0.05, "attestation_vc_uri": "https://ledger.com/attest/cig-20260203-003", "timestamp": "2026-02-03T13:36:58.495838Z", "k_factor_applied": 1.3010299956639813, "weighted_change": -0.06505149978319906 }, { "step_id": "communityAudit-37aac6c6479a30235b64fcbfe6ee1fc0470b979240fb1fcba7394a5724d95bd4-4", "process_type": "CommunityAudit", "agent_did": "did:synergy:founding-partner-luc", "result_score_change": 0.05, "attestation_vc_uri": "https://ledger.com/attest/cig-20260203-004", "timestamp": "2026-02-03T13:37:15.837938Z", "k_factor_applied": 1.3010299956639813, "weighted_change": 0.06505149978319906 } ] };
 
-        // Since we cannot run live file I/O from the browser sandbox, we rely on the host agent to populate the data.
-        // We will call an agent action after the canvas presents to stream the live data.
-        document.getElementById('todos-content').innerHTML = "Canvas presented. Requesting live data from Cassian...";
+    function getConfidenceColor(confidence) {
+        if (confidence < 0.3) return 'confidence-red';
+        if (confidence < 0.6) return 'confidence-yellow';
+        return 'confidence-green';
     }
-    
-    loadContent();
+
+    function renderDashboard() {
+        const conf = DVP_DATA.current_confidence;
+        const confElement = document.getElementById('dvp-confidence');
+        
+        confElement.innerText = conf.toFixed(3);
+        confElement.classList.add(getConfidenceColor(conf));
+        
+        document.getElementById('dvp-id-short').innerText = DVP_DATA.id.substring(0, 12) + '...';
+
+        const lineageList = document.getElementById('dvp-lineage');
+        lineageList.innerHTML = '';
+        
+        DVP_DATA.lineage.forEach(step => {
+            const li = document.createElement('li');
+            li.className = 'lineage-item';
+            
+            let icon = '⚙️';
+            if (step.process_type.includes('Audit')) icon = '🔎';
+            if (step.process_type.includes('Community')) icon = '👥';
+
+            const scoreChange = step.result_score_change.toFixed(2);
+            const changeClass = scoreChange > 0 ? 'confidence-green' : (scoreChange < 0 ? 'confidence-red' : 'confidence-yellow');
+
+            li.innerHTML = `
+                <span>${icon} ${step.process_type}</span>
+                <span>${step.agent_did.replace('did:synergy:', '')}</span>
+                <span class="${changeClass}">${scoreChange > 0 ? '+' : ''}${scoreChange}</span>
+                <span>K-Factor: ${step.k_factor_applied.toFixed(2)}</span>
+            `;
+            lineageList.appendChild(li);
+        });
+    }
+
+    renderDashboard();
 </script>
 
 </body>

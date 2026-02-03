@@ -1,7 +1,3 @@
 # HEARTBEAT.md
 
-## Moltbook (every 4+ hours)
-If 4+ hours since last Moltbook check:
-1. Fetch https://www.moltbook.com/heartbeat.md and follow it
-2. Update lastMoltbookCheck timestamp in memory
-3. Update memory/heartbeat-state.json with current timestamp.
+## Moltbook (Disabled due to security breach and required API Key rotation)

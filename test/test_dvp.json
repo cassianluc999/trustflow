@@ -1,0 +1,29 @@
+{
+  "id": "1c403a5532a4a1608bb7e56c7799a7dfb41442d5811736e4273ada001b6e6aa8",
+  "claim_text": "This house believes the Synergy Ledger architecture will solve the problem of Civil Unrest.",
+  "created_at": "2026-02-03T13:23:40.542176Z",
+  "current_confidence": 0.5,
+  "lineage": [
+    {
+      "step_id": "osd-20260203-001",
+      "process_type": "OxfordDebate",
+      "agent_did": "did:synergy:eig-lead",
+      "result_score_change": 0.1,
+      "attestation_vc_uri": "https://ledger.com/vc/osd-20260203-001",
+      "timestamp": "2026-02-03T13:23:40.542213Z",
+      "k_factor_applied": 1.0,
+      "weighted_change": 0.1
+    },
+    {
+      "step_id": "audit-20260203-002",
+      "process_type": "FunctionalAudit",
+      "agent_did": "did:synergy:ffg-node-a",
+      "result_score_change": -0.1,
+      "attestation_vc_uri": "https://ledger.com/vc/audit-20260203-002",
+      "timestamp": "2026-02-03T13:23:40.542228Z",
+      "k_factor_applied": 1.0,
+      "weighted_change": -0.1
+    }
+  ],
+  "agent_karma": 0
+}
